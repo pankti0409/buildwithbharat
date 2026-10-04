@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --canvas: #F8FAFC;
+    --card: #FFFFFF;
+    --ink: #0F172A;
+    --ink-secondary: #334155;
+    --ink-muted: #64748B;
+    --border: #E2E8F0;
+    
+    --primary: #0F172A;
+    --primary-light: #F1F5F9;
+    --primary-dark: #020617;
+    
+    --mint: #059669;
+    --mint-light: #ECFDF5;
+    --mint-dark: #047857;
+    
+    --sky: #0284C7;
+    --sky-light: #F0F9FF;
+    --sky-dark: #0369A1;
+    
+    --butter: #D97706;
+    --butter-light: #FFFBEB;
+    --butter-dark: #B45309;
+    
+    --peach: #EA580C;
+    --peach-light: #FFF7ED;
+    --peach-dark: #C2410C;
+    
+    --rose: #E11D48;
+    --rose-light: #FFF1F2;
+    --rose-dark: #BE123C;
+  }
+
+  .dark {
+    --canvas: #090D16;
+    --card: #111827;
+    --ink: #F8FAFC;
+    --ink-secondary: #94A3B8;
+    --ink-muted: #64748B;
+    --border: #1E293B;
+  }
+
+  body {
+    background-color: var(--canvas);
+    color: var(--ink);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+}
+
+/* Custom Smooth Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Glassmorphic Navbar & Panels */
+.glass-nav {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+.dark .glass-nav {
+  background: rgba(15, 23, 42, 0.85);
+  border-bottom: 1px solid rgba(30, 41, 59, 0.8);
+}
+
+.glass-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+}
+.dark .glass-card {
+  background: #111827;
+  border: 1px solid #1E293B;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+}
+
+/* Subtle, Elegant Background Accents (No Loud Mesh) */
+.mesh-gradient-hero {
+  background: radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.04) 0%, transparent 60%);
+}
+.dark .mesh-gradient-hero {
+  background: radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.08) 0%, transparent 60%);
+}
+
+.mesh-gradient-subtle {
+  background: transparent;
+}
+.dark .mesh-gradient-subtle {
+  background: transparent;
+}
+
+/* Custom Pulse Animation */
+@keyframes softPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.05); }
+}
+
+.animate-soft-pulse {
+  animation: softPulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Leaflet Map styling */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  font-family: inherit;
+  z-index: 10;
+}
+
+.leaflet-popup-content-wrapper {
+  background: #FFFFFF !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.15) !important;
+  padding: 4px !important;
+  border: 1px solid #E2E8F0 !important;
+}
+.dark .leaflet-popup-content-wrapper {
+  background: #111827 !important;
+  color: #F8FAFC !important;
+  border: 1px solid #1E293B !important;
+}
+
+.leaflet-popup-tip {
+  background: #FFFFFF !important;
+  box-shadow: none !important;
+}
+.dark .leaflet-popup-tip {
+  background: #111827 !important;
+}
