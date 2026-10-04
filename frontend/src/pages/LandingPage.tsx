@@ -141,19 +141,19 @@ export const LandingPage: React.FC = () => {
             {/* Left Hero Text */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e4eee9] dark:bg-tealBrand/20 border border-tealBrand/30 text-tealBrand dark:text-teal-300 text-xs font-semibold shadow-2xs">
-                <span className="h-1.5 w-1.5 rounded-full bg-tealBrand animate-pulse" />
-                <span>Built for India’s cities</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 text-xs font-semibold shadow-2xs">
+                <span className="h-1.5 w-1.5 rounded-full bg-slate-900 dark:bg-white animate-pulse" />
+                <span>Built for India’s Municipal Governance</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ink dark:text-white leading-[1.12]">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.12]">
                 Better cities begin with{' '}
-                <span className="text-tealBrand dark:text-teal-400 underline decoration-tealBrand/30 underline-offset-8">
+                <span className="text-slate-900 dark:text-white underline decoration-slate-300 dark:decoration-slate-600 underline-offset-8">
                   one clear report.
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg text-ink-secondary dark:text-ink-secondary max-w-2xl leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
                 Tark Shaastra connects citizens and municipal teams to surface real issues, route them to the right department, and verify every resolution with mathematical care.
               </p>
 
@@ -187,17 +187,17 @@ export const LandingPage: React.FC = () => {
               </div>
 
               {/* Trust Badges */}
-              <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-ink-secondary dark:text-ink-muted">
+              <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-slate-600 dark:text-slate-400">
                 <span className="flex items-center gap-1.5 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-tealBrand dark:text-teal-400" />
+                  <CheckCircle2 className="w-4 h-4 text-slate-800 dark:text-slate-200" />
                   Verified by citizens
                 </span>
                 <span className="flex items-center gap-1.5 font-medium">
-                  <ShieldCheck className="w-4 h-4 text-tealBrand dark:text-teal-400" />
+                  <ShieldCheck className="w-4 h-4 text-slate-800 dark:text-slate-200" />
                   Fraud-aware by design
                 </span>
                 <span className="flex items-center gap-1.5 font-medium">
-                  <PhoneCall className="w-4 h-4 text-tealBrand dark:text-teal-400" />
+                  <PhoneCall className="w-4 h-4 text-slate-800 dark:text-slate-200" />
                   Toll-Free 1800-TARK-78
                 </span>
               </div>
@@ -207,54 +207,54 @@ export const LandingPage: React.FC = () => {
             <div className="lg:col-span-5 flex justify-center">
               <div className="relative w-full max-w-md">
                 {/* Glow Backdrop */}
-                <div className="absolute -inset-4 rounded-3xl bg-[#dff4ef] dark:bg-tealBrand/10 blur-2xl pointer-events-none" />
+                <div className="absolute -inset-4 rounded-3xl bg-slate-200/50 dark:bg-slate-800/40 blur-2xl pointer-events-none" />
 
-                <Card className="relative overflow-hidden border-white/80 dark:border-surface-darkBorder bg-surface-light/90 dark:bg-surface-dark/95 p-5 shadow-xl backdrop-blur">
-                  <div className="flex items-center justify-between border-b border-ink-border/50 dark:border-surface-darkBorder pb-4">
+                <Card className="relative overflow-hidden border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/95 p-5 shadow-card backdrop-blur">
+                  <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-700 pb-4">
                     <div className="flex items-center gap-3">
-                      <span className="grid h-9 w-9 place-items-center rounded-xl bg-tealBrand-subtle dark:bg-tealBrand/30 text-tealBrand dark:text-teal-300">
+                      <span className="grid h-9 w-9 place-items-center rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-600">
                         <MapPin className="h-5 w-5" />
                       </span>
                       <div>
-                        <p className="font-bold text-sm text-ink dark:text-white">Gujarat Civic Pulse</p>
-                        <p className="text-[11px] text-ink-muted">Live Community Telemetry</p>
+                        <p className="font-bold text-sm text-slate-900 dark:text-white">Gujarat Civic Pulse</p>
+                        <p className="text-[11px] text-slate-500 dark:text-slate-400">Live Community Telemetry</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-1.5">
-                      <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 animate-ping" />
-                      <span className="text-[10px] font-mono font-bold text-emerald-700 dark:text-emerald-400 uppercase">
+                      <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-ping" />
+                      <span className="text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase">
                         ONLINE
                       </span>
                     </div>
                   </div>
 
                   {/* Grid Map Preview */}
-                  <div className="relative mt-4 h-56 overflow-hidden rounded-2xl bg-[#edf7f5] dark:bg-surface-darkMuted border border-tealBrand/20">
-                    <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(#b5d6d0_1px,transparent_1px),linear-gradient(90deg,#b5d6d0_1px,transparent_1px)] [background-size:28px_28px]" />
+                  <div className="relative mt-4 h-56 overflow-hidden rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+                    <div className="absolute inset-0 opacity-30 [background-image:linear-gradient(#94a3b8_1px,transparent_1px),linear-gradient(90deg,#94a3b8_1px,transparent_1px)] [background-size:28px_28px]" />
                     
                     {/* Live Geo Pins */}
                     <div className="absolute left-[24%] top-[34%] h-3.5 w-3.5 rounded-full border-2 border-white bg-rose-500 shadow-md animate-bounce" title="High Priority" />
                     <div className="absolute left-[52%] top-[54%] h-3.5 w-3.5 rounded-full border-2 border-white bg-amber-400 shadow-md" title="In Progress" />
-                    <div className="absolute left-[72%] top-[28%] h-3.5 w-3.5 rounded-full border-2 border-white bg-tealBrand shadow-md" title="Verified" />
+                    <div className="absolute left-[72%] top-[28%] h-3.5 w-3.5 rounded-full border-2 border-white bg-slate-900 shadow-md" title="Verified" />
                     
-                    <div className="absolute bottom-3 left-3 rounded-xl bg-white/95 dark:bg-surface-dark/95 px-3 py-1.5 text-xs shadow-sm border border-ink-border dark:border-surface-darkBorder">
-                      <span className="font-bold text-ink dark:text-white">1,248</span> issues resolved this month
+                    <div className="absolute bottom-3 left-3 rounded-xl bg-white/95 dark:bg-slate-800/95 px-3 py-1.5 text-xs shadow-sm border border-slate-200 dark:border-slate-700">
+                      <span className="font-bold text-slate-900 dark:text-white">1,248</span> issues resolved this month
                     </div>
                   </div>
 
                   {/* Stat Bar */}
                   <div className="mt-4 grid grid-cols-3 gap-2 text-center">
-                    <div className="rounded-xl bg-[#f5faf9] dark:bg-surface-darkMuted p-2.5 border border-tealBrand/10">
-                      <p className="text-lg font-bold text-ink dark:text-white">94%</p>
-                      <p className="text-[10px] text-ink-muted">verified</p>
+                    <div className="rounded-xl bg-slate-50 dark:bg-slate-900/60 p-2.5 border border-slate-200 dark:border-slate-700">
+                      <p className="text-lg font-bold text-slate-900 dark:text-white">94%</p>
+                      <p className="text-[10px] text-slate-500 dark:text-slate-400">verified</p>
                     </div>
-                    <div className="rounded-xl bg-[#fffaf0] dark:bg-surface-darkMuted p-2.5 border border-amberBrand/20">
-                      <p className="text-lg font-bold text-ink dark:text-white">16.4h</p>
-                      <p className="text-[10px] text-ink-muted">avg. SLA</p>
+                    <div className="rounded-xl bg-slate-50 dark:bg-slate-900/60 p-2.5 border border-slate-200 dark:border-slate-700">
+                      <p className="text-lg font-bold text-slate-900 dark:text-white">16.4h</p>
+                      <p className="text-[10px] text-slate-500 dark:text-slate-400">avg. SLA</p>
                     </div>
-                    <div className="rounded-xl bg-[#f8f4fb] dark:bg-surface-darkMuted p-2.5 border border-lavender/20">
-                      <p className="text-lg font-bold text-ink dark:text-white">42.8k</p>
-                      <p className="text-[10px] text-ink-muted">citizens</p>
+                    <div className="rounded-xl bg-slate-50 dark:bg-slate-900/60 p-2.5 border border-slate-200 dark:border-slate-700">
+                      <p className="text-lg font-bold text-slate-900 dark:text-white">42.8k</p>
+                      <p className="text-[10px] text-slate-500 dark:text-slate-400">citizens</p>
                     </div>
                   </div>
                 </Card>
@@ -566,79 +566,82 @@ export const LandingPage: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Citizen */}
-            <Card hover className="flex flex-col justify-between shadow-xs">
+            <Card hover className="flex flex-col justify-between shadow-card hover:shadow-card-hover border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/90 transition-all">
               <div>
-                <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white flex items-center justify-center mb-4 border border-slate-200 dark:border-slate-700">
+                <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white flex items-center justify-center mb-4 border border-slate-200 dark:border-slate-600 font-bold">
                   <Users className="w-5 h-5" />
                 </div>
-                <h3 className="text-base font-bold text-slate-900 dark:text-white">1. Citizen Workspace</h3>
+                <span className="text-[10px] font-mono uppercase tracking-wider font-bold text-slate-500 dark:text-slate-400">
+                  Public Access
+                </span>
+                <h3 className="text-base font-bold text-slate-900 dark:text-white mt-1">1. Citizen Workspace</h3>
                 <p className="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
                   Mobile-first grievance reporting with live GPS camera HUD, duplicate detection modals, upvoting, and civic karma rewards catalog.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+              <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-700">
                 <Button
                   variant="primary"
                   size="md"
-                  onClick={() => {
-                    switchRole('citizen');
-                    navigate('/citizen');
-                  }}
+                  onClick={() => navigate('/auth?role=citizen')}
                   className="w-full"
+                  rightIcon={<ArrowRight className="w-4 h-4" />}
                 >
-                  Enter Citizen Portal
+                  Citizen Portal Sign In
                 </Button>
               </div>
             </Card>
 
             {/* Officer */}
-            <Card hover className="flex flex-col justify-between shadow-xs">
+            <Card hover className="flex flex-col justify-between shadow-card hover:shadow-card-hover border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/90 transition-all">
               <div>
-                <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white flex items-center justify-center mb-4 border border-slate-200 dark:border-slate-700">
+                <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white flex items-center justify-center mb-4 border border-slate-200 dark:border-slate-600 font-bold">
                   <Building2 className="w-5 h-5" />
                 </div>
-                <h3 className="text-base font-bold text-slate-900 dark:text-white">2. Department Field Portal</h3>
+                <span className="text-[10px] font-mono uppercase tracking-wider font-bold text-slate-500 dark:text-slate-400">
+                  Field Engineering
+                </span>
+                <h3 className="text-base font-bold text-slate-900 dark:text-white mt-1">2. Department Field Portal</h3>
                 <p className="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
                   Dynamic queue management with interactive Kanban boards, map dispatching, ≤100m geo-fenced resolution camera, and Twilio IVR trigger.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+              <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-700">
                 <Button
-                  variant="outline"
+                  variant="primary"
                   size="md"
-                  onClick={() => {
-                    switchRole('officer');
-                    navigate('/department');
-                  }}
+                  onClick={() => navigate('/auth?role=officer')}
                   className="w-full"
+                  rightIcon={<ArrowRight className="w-4 h-4" />}
                 >
-                  Enter Department Portal
+                  Officer Portal Sign In
                 </Button>
               </div>
             </Card>
 
             {/* Admin */}
-            <Card hover className="flex flex-col justify-between shadow-xs">
+            <Card hover className="flex flex-col justify-between shadow-card hover:shadow-card-hover border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/90 transition-all">
               <div>
-                <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white flex items-center justify-center mb-4 border border-slate-200 dark:border-slate-700">
+                <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white flex items-center justify-center mb-4 border border-slate-200 dark:border-slate-600 font-bold">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
-                <h3 className="text-base font-bold text-slate-900 dark:text-white">3. Municipal Command Center</h3>
+                <span className="text-[10px] font-mono uppercase tracking-wider font-bold text-slate-500 dark:text-slate-400">
+                  Municipal Oversight
+                </span>
+                <h3 className="text-base font-bold text-slate-900 dark:text-white mt-1">3. Municipal Command Center</h3>
                 <p className="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
                   Executive dashboard with Recharts trends, master filterable table with CSV export, GPS triangulation inspector, and IVR logs.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+              <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-700">
                 <Button
-                  variant="outline"
+                  variant="primary"
                   size="md"
-                  onClick={() => {
-                    switchRole('admin');
-                    navigate('/admin');
-                  }}
+                  onClick={() => navigate('/auth?role=admin')}
                   className="w-full"
+                  rightIcon={<ArrowRight className="w-4 h-4" />}
                 >
-                  Enter Admin Command
+                  Admin HQ Sign In
                 </Button>
               </div>
             </Card>

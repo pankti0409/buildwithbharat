@@ -16,11 +16,13 @@ import {
   Camera,
   Plus,
   Settings,
-  QrCode
+  QrCode,
+  AlertCircle,
+  ArrowRight
 } from 'lucide-react';
 
 export const CitizenLayout: React.FC = () => {
-  const { user } = useAuth();
+  const { user, role, switchRole } = useAuth();
   const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
@@ -47,9 +49,9 @@ export const CitizenLayout: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col md:flex-row pb-20 md:pb-0">
+    <div className="min-h-screen bg-canvas dark:bg-canvas-dark flex flex-col md:flex-row pb-20 md:pb-0 transition-colors">
       {/* Desktop Sidebar Navigation */}
-      <aside className="hidden md:flex flex-col w-64 border-r border-slate-200/80 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-4 sticky top-16 sm:top-20 h-[calc(100vh-80px)]">
+      <aside className="hidden md:flex flex-col w-64 border-r border-slate-200/80 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-4 sticky top-16 sm:top-20 h-[calc(100vh-80px)]">
         {/* User Civic Karma Card */}
         {user && (
           <div 
@@ -61,7 +63,7 @@ export const CitizenLayout: React.FC = () => {
               <span className="text-[10px] font-mono font-bold text-slate-500 dark:text-slate-400 uppercase">
                 Citizen ID Pass
               </span>
-              <span className="text-[10px] font-bold text-slate-700 dark:text-slate-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 flex items-center gap-1">
+              <span className="text-[10px] font-bold text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white flex items-center gap-1">
                 <QrCode className="w-3 h-3" />
                 <span>View Card</span>
               </span>
@@ -70,10 +72,10 @@ export const CitizenLayout: React.FC = () => {
               <img
                 src={user.avatar}
                 alt={user.name}
-                className="w-10 h-10 rounded-lg object-cover border border-slate-200 dark:border-slate-700 shadow-2xs group-hover:border-emerald-500 transition-colors"
+                className="w-10 h-10 rounded-lg object-cover border border-slate-200 dark:border-slate-700 shadow-2xs group-hover:border-slate-400 dark:group-hover:border-slate-500 transition-colors"
               />
               <div className="overflow-hidden">
-                <p className="text-xs font-bold text-slate-900 dark:text-white truncate group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                <p className="text-xs font-bold text-slate-900 dark:text-white truncate group-hover:text-slate-900 dark:group-hover:text-white transition-colors">
                   {user.name}
                 </p>
                 <div className="flex items-center gap-1.5 mt-0.5">
@@ -86,7 +88,7 @@ export const CitizenLayout: React.FC = () => {
               </div>
             </div>
             <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-2 truncate flex items-center gap-1">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+              <ShieldCheck className="w-3.5 h-3.5 text-slate-600 dark:text-slate-400" />
               <span>{user.ward}</span>
             </p>
           </div>
@@ -186,3 +188,4 @@ export const CitizenLayout: React.FC = () => {
     </div>
   );
 };
+

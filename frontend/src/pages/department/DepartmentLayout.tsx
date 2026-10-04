@@ -4,21 +4,17 @@ import { useAuth } from '../../context/AuthContext';
 import { useTranslation } from '../../context/LanguageContext';
 import { ProfileModal } from '../../components/common/ProfileModal';
 import { 
-  Building2, 
+  HardHat, 
   Kanban, 
   Award, 
   Flame, 
   ShieldCheck, 
   Clock, 
-  UserCheck, 
-  LayoutDashboard,
-  CheckCircle2,
-  QrCode,
-  Settings
+  LayoutDashboard
 } from 'lucide-react';
 
 export const DepartmentLayout: React.FC = () => {
-  const { user } = useAuth();
+  const { user, role } = useAuth();
   const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
@@ -36,7 +32,7 @@ export const DepartmentLayout: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
+    <div className="min-h-screen bg-canvas dark:bg-canvas-dark transition-colors">
       {/* Department Portal Sub-Header */}
       <div className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-16 sm:top-20 z-30 shadow-2xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,17 +40,17 @@ export const DepartmentLayout: React.FC = () => {
             {/* Left: Department & Officer Identity */}
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white flex items-center justify-center font-bold border border-slate-200 dark:border-slate-700">
-                <Building2 className="w-5 h-5" />
+                <HardHat className="w-5 h-5" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
                   <h2 className="text-sm font-bold text-slate-900 dark:text-white">Roads & Bridges Department (Ahmedabad West)</h2>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 font-bold border border-emerald-200 dark:border-emerald-800/40">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold border border-slate-200 dark:border-slate-700">
                     ON DUTY
                   </span>
                 </div>
                 <p className="text-[11px] text-slate-500 dark:text-slate-400">
-                  Officer: <b className="text-slate-800 dark:text-slate-200">{user?.name || 'Rajesh Solanki'}</b> • Navrangpura & Stadium Wards
+                  Officer: <b className="text-slate-800 dark:text-slate-200">{role === 'officer' ? user?.name : 'Rajesh Solanki (Jr. Engineer)'}</b> • Navrangpura & Stadium Wards
                 </p>
               </div>
             </div>
@@ -66,7 +62,7 @@ export const DepartmentLayout: React.FC = () => {
                 className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 text-white dark:bg-white dark:text-slate-900 text-xs font-bold shadow-xs hover:bg-slate-800 dark:hover:bg-slate-100 transition-colors cursor-pointer"
                 title="View Official Officer Smart Badge & Settings"
               >
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 dark:text-emerald-600" />
+                <ShieldCheck className="w-3.5 h-3.5 text-slate-300 dark:text-slate-700" />
                 <span>Officer Badge</span>
               </button>
 

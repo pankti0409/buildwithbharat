@@ -10,13 +10,13 @@ export default {
       colors: {
         canvas: {
           DEFAULT: '#F8FAFC',
-          dark: '#090D16',
+          dark: '#0F172A',
         },
         surface: {
           light: '#FFFFFF',
-          dark: '#111827',
-          darkMuted: '#1E293B',
-          darkBorder: '#334155',
+          dark: '#1E293B',
+          darkMuted: '#334155',
+          darkBorder: '#475569',
         },
         brand: {
           50: '#F0FDF4',
@@ -39,42 +39,53 @@ export default {
         },
         ink: {
           DEFAULT: '#0F172A',
-          secondary: '#334155',
+          secondary: '#475569',
           muted: '#64748B',
           light: '#F1F5F9',
           border: '#E2E8F0',
         },
-        // Backward-compatible semantic tokens with refined, elegant tones
-        lavender: {
-          DEFAULT: '#0F172A',
-          light: '#F1F5F9',
-          dark: '#020617',
-          hover: '#1E293B',
-        },
+        // Dedicated Pastel + Vibrant Semantic Tokens
         mint: {
           DEFAULT: '#059669',
           light: '#ECFDF5',
+          border: '#A7F3D0',
           dark: '#047857',
-        },
-        peach: {
-          DEFAULT: '#EA580C',
-          light: '#FFF7ED',
-          dark: '#C2410C',
+          vibrant: '#10B981',
         },
         sky: {
           DEFAULT: '#0284C7',
           light: '#F0F9FF',
+          border: '#BAE6FD',
           dark: '#0369A1',
+          vibrant: '#0EA5E9',
+        },
+        lavender: {
+          DEFAULT: '#7C3AED',
+          light: '#FAF5FF',
+          border: '#DDD6FE',
+          dark: '#6D28D9',
+          vibrant: '#8B5CF6',
         },
         butter: {
           DEFAULT: '#D97706',
           light: '#FFFBEB',
+          border: '#FDE68A',
           dark: '#B45309',
+          vibrant: '#F59E0B',
+        },
+        peach: {
+          DEFAULT: '#EA580C',
+          light: '#FFF7ED',
+          border: '#FFEDD5',
+          dark: '#C2410C',
+          vibrant: '#F97316',
         },
         rose: {
           DEFAULT: '#E11D48',
           light: '#FFF1F2',
+          border: '#FECDD3',
           dark: '#BE123C',
+          vibrant: '#F43F5E',
         },
       },
       fontFamily: {
@@ -83,12 +94,11 @@ export default {
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
       boxShadow: {
-        'card': '0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05)',
+        'card': '0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px -1px rgba(15, 23, 42, 0.05)',
         'card-hover': '0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04)',
         'soft': '0 2px 8px -1px rgba(15, 23, 42, 0.06)',
-        'soft-dark': '0 4px 20px -2px rgba(0, 0, 0, 0.6)',
-        'elevated': '0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.05)',
-        'glow-brand': '0 0 20px -3px rgba(15, 23, 42, 0.25)',
+        'soft-dark': '0 4px 20px -2px rgba(0, 0, 0, 0.3)',
+        'elevated': '0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.03)',
       },
       borderRadius: {
         'xl': '12px',

@@ -8,17 +8,14 @@ import {
   LayoutDashboard, 
   Table, 
   BarChart3, 
-  Flame, 
   ShieldAlert, 
   Users, 
   PhoneCall, 
-  Globe2,
-  QrCode,
-  Settings
+  Globe2
 } from 'lucide-react';
 
 export const AdminLayout: React.FC = () => {
-  const { user } = useAuth();
+  const { user, role } = useAuth();
   const { t } = useTranslation();
   const location = useLocation();
   const [profileModalOpen, setProfileModalOpen] = useState(false);
@@ -39,7 +36,7 @@ export const AdminLayout: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
+    <div className="min-h-screen bg-canvas dark:bg-canvas-dark transition-colors">
       {/* Top Admin Command Sub-Header */}
       <div className="bg-slate-900 text-white border-b border-slate-800 sticky top-16 sm:top-20 z-30 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -58,7 +55,7 @@ export const AdminLayout: React.FC = () => {
                   </span>
                 </div>
                 <p className="text-[11px] text-slate-400">
-                  {user?.name || 'Commissioner S. Mehta (IAS)'} • Gujarat Municipal Grid
+                  {role === 'admin' ? user?.name || 'Commissioner S. Mehta (IAS)' : 'Commissioner S. Mehta (IAS)'} • Gujarat Municipal Grid
                 </p>
               </div>
             </div>
