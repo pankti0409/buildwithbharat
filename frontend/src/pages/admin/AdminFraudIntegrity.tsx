@@ -36,72 +36,74 @@ export const AdminFraudIntegrity: React.FC = () => {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-extrabold text-ink tracking-tight">
+        <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
           Integrity & Fraud Sentinel
         </h1>
-        <p className="text-xs sm:text-sm text-ink-secondary mt-0.5">
+        <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
           Automated heuristic detection of geo-fence bypass attempts, photo recycling, and abnormal closure speeds
         </p>
       </div>
 
-      {/* Sentinel Highlights */}
+      {/* Sentinel Highlights (Pastel & Clean) */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <Card className="p-5 bg-rose-50/50 border-rose-200">
-          <span className="text-[10px] font-bold text-rose-800 uppercase font-mono">GEO-FENCE BREACHES</span>
-          <h3 className="text-2xl font-extrabold text-rose-950 mt-1">1 Detected</h3>
-          <p className="text-xs text-rose-800 mt-1">Resolution attempted &gt; 500m from site</p>
-        </Card>
+        <div className="p-5 rounded-2xl bg-rose-50/70 dark:bg-rose-950/40 border border-rose-200/80 dark:border-rose-800/50 shadow-xs">
+          <span className="text-[10px] font-bold text-rose-800 dark:text-rose-300 uppercase font-mono">GEO-FENCE BREACHES</span>
+          <h3 className="text-2xl font-extrabold text-rose-950 dark:text-rose-100 mt-1">1 Detected</h3>
+          <p className="text-xs text-rose-700 dark:text-rose-300 mt-1">Resolution attempted &gt; 500m from site</p>
+        </div>
 
-        <Card className="p-5 bg-amber-50/50 border-amber-200">
-          <span className="text-[10px] font-bold text-amber-800 uppercase font-mono">REPEATED REOPENS</span>
-          <h3 className="text-2xl font-extrabold text-amber-950 mt-1">1 Flagged</h3>
-          <p className="text-xs text-amber-800 mt-1">Citizen pressed [2] on IVR multiple times</p>
-        </Card>
+        <div className="p-5 rounded-2xl bg-amber-50/70 dark:bg-amber-950/40 border border-amber-200/80 dark:border-amber-800/50 shadow-xs">
+          <span className="text-[10px] font-bold text-amber-800 dark:text-amber-300 uppercase font-mono">REPEATED REOPENS</span>
+          <h3 className="text-2xl font-extrabold text-amber-950 dark:text-amber-100 mt-1">1 Flagged</h3>
+          <p className="text-xs text-amber-700 dark:text-amber-300 mt-1">Citizen pressed [2] on IVR multiple times</p>
+        </div>
 
-        <Card className="p-5 bg-emerald-50/50 border-emerald-200">
-          <span className="text-[10px] font-bold text-emerald-800 uppercase font-mono">ZERO PHOTO DUPLICATION</span>
-          <h3 className="text-2xl font-extrabold text-emerald-950 mt-1">100% Genuine</h3>
-          <p className="text-xs text-emerald-800 mt-1">EXIF hash verification active</p>
-        </Card>
+        <div className="p-5 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/50 shadow-xs">
+          <span className="text-[10px] font-bold text-emerald-800 dark:text-emerald-300 uppercase font-mono">ZERO PHOTO DUPLICATION</span>
+          <h3 className="text-2xl font-extrabold text-emerald-950 dark:text-emerald-100 mt-1">100% Genuine</h3>
+          <p className="text-xs text-emerald-700 dark:text-emerald-300 mt-1">EXIF hash verification active</p>
+        </div>
       </div>
 
       {/* Flagged Alerts List */}
       <div className="space-y-4">
-        <h2 className="text-lg font-bold text-ink">Active Suspicious Resolution Incidents</h2>
+        <h2 className="text-lg font-bold text-slate-900 dark:text-white">Active Suspicious Resolution Incidents</h2>
 
         {alerts.length === 0 ? (
-          <Card className="p-12 text-center text-ink-muted">
-            <CheckCircle2 className="w-10 h-10 text-emerald-600 mx-auto mb-2" />
-            <p className="text-sm font-bold text-ink">All Integrity Audits Passed</p>
-            <p className="text-xs text-ink-muted">No suspicious resolutions detected across municipal wards.</p>
+          <Card className="p-12 text-center text-slate-500 dark:text-slate-400">
+            <CheckCircle2 className="w-10 h-10 text-emerald-600 dark:text-emerald-400 mx-auto mb-2" />
+            <p className="text-sm font-bold text-slate-900 dark:text-white">All Integrity Audits Passed</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">No suspicious resolutions detected across municipal wards.</p>
           </Card>
         ) : (
           <div className="space-y-3">
             {alerts.map((alert) => (
               <Card
                 key={alert.id}
-                className="p-5 bg-white border-ink-border flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+                className="p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
               >
                 <div className="flex items-start gap-3.5">
                   <div className={`w-10 h-10 rounded-2xl flex items-center justify-center shrink-0 ${
                     alert.severity === 'CRITICAL'
-                      ? 'bg-rose-100 text-rose-700'
-                      : 'bg-amber-100 text-amber-800'
+                      ? 'bg-rose-100 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800/40'
+                      : 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800/40'
                   }`}>
                     <AlertTriangle className="w-5 h-5" />
                   </div>
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono font-bold text-ink">{alert.ticketNumber}</span>
+                      <span className="text-xs font-mono font-bold text-slate-900 dark:text-white">{alert.ticketNumber}</span>
                       <span className={`text-[10px] font-bold px-2 py-0.5 rounded uppercase font-mono ${
-                        alert.severity === 'CRITICAL' ? 'bg-rose-100 text-rose-800' : 'bg-amber-100 text-amber-800'
+                        alert.severity === 'CRITICAL' 
+                          ? 'bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300' 
+                          : 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300'
                       }`}>
                         {alert.type}
                       </span>
                     </div>
-                    <p className="text-xs text-ink-secondary">{alert.description}</p>
-                    <p className="text-[11px] text-ink-muted">
-                      Officer: <b className="text-ink">{alert.officerName}</b> • {alert.departmentName}
+                    <p className="text-xs text-slate-600 dark:text-slate-400">{alert.description}</p>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                      Officer: <b className="text-slate-800 dark:text-slate-200">{alert.officerName}</b> • {alert.departmentName}
                     </p>
                   </div>
                 </div>

@@ -92,10 +92,10 @@ export const MapComponent: React.FC<MapComponentProps> = ({
       >
         <MapCenterController center={center} zoom={zoom} />
 
-        {/* Clean OpenStreetMap CartoDB Positron style */}
+        {/* Clean OpenStreetMap style */}
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-          url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
         {/* Optional User Location with Radius Circle */}

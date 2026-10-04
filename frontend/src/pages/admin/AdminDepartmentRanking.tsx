@@ -20,10 +20,10 @@ export const AdminDepartmentRanking: React.FC = () => {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-extrabold text-ink tracking-tight">
+        <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
           Department Performance & SLA League Table
         </h1>
-        <p className="text-xs sm:text-sm text-ink-secondary mt-0.5">
+        <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
           Comparative analysis of turnaround speed, citizen satisfaction, and reopen rates across municipal wings
         </p>
       </div>
@@ -31,53 +31,53 @@ export const AdminDepartmentRanking: React.FC = () => {
       {/* Grid of Department Detail Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {departments.map((dept, idx) => (
-          <Card key={dept.id} hover className="p-6 bg-white border-ink-border flex flex-col justify-between">
+          <Card key={dept.id} hover className="p-6 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="w-8 h-8 rounded-full bg-ink text-white font-bold text-xs flex items-center justify-center">
+                <span className="w-8 h-8 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-xs flex items-center justify-center shadow-xs">
                   #{idx + 1}
                 </span>
-                <span className="text-xs font-mono font-bold text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full">
+                <span className="text-xs font-mono font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800/40">
                   Grade A
                 </span>
               </div>
 
               <div className="flex items-center gap-3 mb-2">
                 <div
-                  className="w-10 h-10 rounded-2xl flex items-center justify-center text-white"
+                  className="w-10 h-10 rounded-2xl flex items-center justify-center text-white shadow-2xs"
                   style={{ backgroundColor: dept.color }}
                 >
                   <BarChart3 className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-ink">{dept.name}</h3>
-                  <p className="text-xs text-ink-muted">{dept.headName}</p>
+                  <h3 className="text-sm font-bold text-slate-900 dark:text-white">{dept.name}</h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">{dept.headName}</p>
                 </div>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-ink-border grid grid-cols-2 gap-3 text-xs">
+              <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 grid grid-cols-2 gap-3 text-xs">
                 <div>
-                  <span className="text-ink-muted text-[10px]">Avg Speed:</span>
-                  <p className="font-bold text-emerald-700 font-mono">{dept.avgResolutionHours} hrs</p>
+                  <span className="text-slate-500 dark:text-slate-400 text-[10px]">Avg Speed:</span>
+                  <p className="font-bold text-emerald-600 dark:text-emerald-400 font-mono">{dept.avgResolutionHours} hrs</p>
                 </div>
                 <div>
-                  <span className="text-ink-muted text-[10px]">SLA Benchmark:</span>
-                  <p className="font-bold text-ink font-mono">{dept.slaHours} hrs</p>
+                  <span className="text-slate-500 dark:text-slate-400 text-[10px]">SLA Benchmark:</span>
+                  <p className="font-bold text-slate-900 dark:text-white font-mono">{dept.slaHours} hrs</p>
                 </div>
                 <div>
-                  <span className="text-ink-muted text-[10px]">Resolved Count:</span>
-                  <p className="font-bold text-ink font-mono">{dept.resolvedCount} issues</p>
+                  <span className="text-slate-500 dark:text-slate-400 text-[10px]">Resolved Count:</span>
+                  <p className="font-bold text-slate-900 dark:text-white font-mono">{dept.resolvedCount} issues</p>
                 </div>
                 <div>
-                  <span className="text-ink-muted text-[10px]">Citizen Reopen %:</span>
-                  <p className="font-bold text-amber-700 font-mono">{dept.reopenRate}%</p>
+                  <span className="text-slate-500 dark:text-slate-400 text-[10px]">Citizen Reopen %:</span>
+                  <p className="font-bold text-amber-600 dark:text-amber-400 font-mono">{dept.reopenRate}%</p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-6 pt-3 border-t border-ink-border flex items-center justify-between text-xs text-ink-muted">
+            <div className="mt-6 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
               <span>Backlog: {dept.activeCount} tasks</span>
-              <span className="text-lavender-dark font-bold">100% Geo-Compliant</span>
+              <span className="text-purple-600 dark:text-purple-400 font-bold">100% Geo-Compliant</span>
             </div>
           </Card>
         ))}

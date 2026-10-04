@@ -70,10 +70,10 @@ export const AdminOfficerManagement: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-extrabold text-ink tracking-tight">
+          <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Field Officer Directory & Workload
           </h1>
-          <p className="text-xs sm:text-sm text-ink-secondary mt-0.5">
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
             Manage municipal field staff, ward allocations, and duty statuses
           </p>
         </div>
@@ -91,51 +91,53 @@ export const AdminOfficerManagement: React.FC = () => {
       {/* Officer Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {officers.map((off) => (
-          <Card key={off.id} hover className="p-6 bg-white border-ink-border flex flex-col justify-between">
+          <Card key={off.id} hover className="p-6 flex flex-col justify-between">
             <div>
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-3">
                   <img
                     src={off.avatar}
                     alt={off.name}
-                    className="w-12 h-12 rounded-2xl object-cover border border-ink-border"
+                    className="w-12 h-12 rounded-2xl object-cover border border-slate-200 dark:border-slate-700"
                   />
                   <div>
-                    <h3 className="text-sm font-bold text-ink">{off.name}</h3>
-                    <p className="text-xs text-ink-muted">{off.city}</p>
+                    <h3 className="text-sm font-bold text-slate-900 dark:text-white">{off.name}</h3>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">{off.city}</p>
                   </div>
                 </div>
 
                 <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                  off.status === 'FIELD' ? 'bg-sky-100 text-sky-800' : 'bg-emerald-100 text-emerald-800'
+                  off.status === 'FIELD' 
+                    ? 'bg-sky-50 dark:bg-sky-950/60 text-sky-800 dark:text-sky-300 border border-sky-200 dark:border-sky-800/40' 
+                    : 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/40'
                 }`}>
                   {off.status}
                 </span>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-ink-border space-y-2 text-xs text-ink-secondary">
+              <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 space-y-2 text-xs text-slate-600 dark:text-slate-400">
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-3.5 h-3.5 text-lavender shrink-0" />
+                  <MapPin className="w-3.5 h-3.5 text-purple-500 shrink-0" />
                   <span className="truncate">{off.ward}</span>
                 </div>
                 <div className="flex items-center gap-2 font-mono">
-                  <Phone className="w-3.5 h-3.5 text-ink-muted shrink-0" />
+                  <Phone className="w-3.5 h-3.5 text-slate-400 shrink-0" />
                   <span>{off.phone}</span>
                 </div>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-ink-border grid grid-cols-3 gap-2 text-center text-xs">
+              <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 grid grid-cols-3 gap-2 text-center text-xs">
                 <div>
-                  <span className="text-ink-muted text-[10px]">Active</span>
-                  <p className="font-bold text-ink font-mono">{off.activeTasks}</p>
+                  <span className="text-slate-500 dark:text-slate-400 text-[10px]">Active</span>
+                  <p className="font-bold text-slate-900 dark:text-white font-mono">{off.activeTasks}</p>
                 </div>
                 <div>
-                  <span className="text-ink-muted text-[10px]">Resolved</span>
-                  <p className="font-bold text-emerald-700 font-mono">{off.resolvedMonth}</p>
+                  <span className="text-slate-500 dark:text-slate-400 text-[10px]">Resolved</span>
+                  <p className="font-bold text-emerald-600 dark:text-emerald-400 font-mono">{off.resolvedMonth}</p>
                 </div>
                 <div>
-                  <span className="text-ink-muted text-[10px]">Accuracy</span>
-                  <p className="font-bold text-sky-dark font-mono">{off.accuracyScore}%</p>
+                  <span className="text-slate-500 dark:text-slate-400 text-[10px]">Accuracy</span>
+                  <p className="font-bold text-sky-600 dark:text-sky-400 font-mono">{off.accuracyScore}%</p>
                 </div>
               </div>
             </div>

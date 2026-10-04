@@ -49,10 +49,10 @@ export const DepartmentDashboard: React.FC = () => {
       {/* Top Welcome Title */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-extrabold text-ink tracking-tight">
+          <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Field Operations Dashboard
           </h1>
-          <p className="text-xs sm:text-sm text-ink-secondary mt-0.5">
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
             Real-time monitoring of road & infrastructure tasks across Navrangpura Ward 12
           </p>
         </div>
@@ -62,7 +62,6 @@ export const DepartmentDashboard: React.FC = () => {
           size="md"
           onClick={() => navigate('/department/queue')}
           leftIcon={<Kanban className="w-4 h-4" />}
-          className="bg-sky-dark hover:bg-sky-dark/90"
         >
           Open Interactive Work Queue
         </Button>
@@ -110,30 +109,32 @@ export const DepartmentDashboard: React.FC = () => {
         {/* Left: Interactive Field Map */}
         <div className="lg:col-span-8 space-y-3">
           <div className="flex items-center justify-between">
-            <h3 className="text-base font-bold text-ink flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-sky-dark" />
+            <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <MapPin className="w-4 h-4 text-sky-600 dark:text-sky-400" />
               <span>Assigned Ward Tickets Geolocation</span>
             </h3>
-            <span className="text-xs text-ink-muted">Navrangpura & Stadium Wards</span>
+            <span className="text-xs text-slate-500 dark:text-slate-400">Navrangpura & Stadium Wards</span>
           </div>
 
-          <MapComponent
-            complaints={complaints}
-            center={[23.0378, 72.5621]}
-            zoom={13}
-            className="h-[440px]"
-            onSelectComplaint={(c) => navigate(`/department/queue?id=${c.id}`)}
-          />
+          <Card className="p-0 overflow-hidden shadow-card">
+            <MapComponent
+              complaints={complaints}
+              center={[23.0378, 72.5621]}
+              zoom={13}
+              className="h-[440px]"
+              onSelectComplaint={(c) => navigate(`/department/queue?id=${c.id}`)}
+            />
+          </Card>
         </div>
 
         {/* Right: Urgent Dispatch List */}
         <div className="lg:col-span-4 space-y-3">
           <div className="flex items-center justify-between">
-            <h3 className="text-base font-bold text-ink flex items-center gap-2">
-              <AlertTriangle className="w-4 h-4 text-amber-600" />
+            <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <AlertTriangle className="w-4 h-4 text-amber-500" />
               <span>Priority Dispatch Queue</span>
             </h3>
-            <span className="text-xs text-amber-800 bg-amber-100 px-2 py-0.5 rounded font-mono font-bold">
+            <span className="text-[10px] text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/40 px-2 py-0.5 rounded-full font-mono font-bold">
               HIGH URGENCY
             </span>
           </div>
@@ -144,25 +145,25 @@ export const DepartmentDashboard: React.FC = () => {
                 key={c.id}
                 hover
                 onClick={() => navigate(`/department/queue?id=${c.id}`)}
-                className="p-3.5 bg-white border-ink-border cursor-pointer space-y-2"
+                className="p-3.5 cursor-pointer space-y-2"
               >
                 <div className="flex items-center justify-between">
                   <StatusChip status={c.status} size="sm" />
-                  <span className="text-[10px] font-mono text-ink-muted">{c.ticketNumber}</span>
+                  <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400">{c.ticketNumber}</span>
                 </div>
 
-                <h4 className="text-xs font-bold text-ink line-clamp-1">
+                <h4 className="text-xs font-bold text-slate-900 dark:text-white line-clamp-1">
                   {language === 'gu' ? c.titleGu : c.title}
                 </h4>
 
-                <p className="text-[11px] text-ink-secondary flex items-center gap-1 line-clamp-1">
-                  <MapPin className="w-3 h-3 text-lavender shrink-0" />
+                <p className="text-[11px] text-slate-600 dark:text-slate-400 flex items-center gap-1 line-clamp-1">
+                  <MapPin className="w-3 h-3 text-purple-500 shrink-0" />
                   <span>{c.complaintLocation.address}</span>
                 </p>
 
-                <div className="pt-2 border-t border-ink-border/60 flex items-center justify-between text-[10px] text-ink-muted">
-                  <span className="text-amber-800 font-semibold">SLA: 18h remaining</span>
-                  <span className="text-sky-dark font-bold">Take Action →</span>
+                <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[10px] text-slate-500 dark:text-slate-400">
+                  <span className="text-amber-700 dark:text-amber-400 font-semibold">SLA: 18h remaining</span>
+                  <span className="text-slate-900 dark:text-white font-bold">Take Action →</span>
                 </div>
               </Card>
             ))}

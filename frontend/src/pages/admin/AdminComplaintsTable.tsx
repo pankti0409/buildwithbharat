@@ -128,10 +128,10 @@ export const AdminComplaintsTable: React.FC = () => {
       {/* Header with Title & Export Actions */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-extrabold text-ink tracking-tight">
+          <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Master Complaints Registry
           </h1>
-          <p className="text-xs sm:text-sm text-ink-secondary mt-0.5">
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
             Audit logs, geo-triangulation verifications, and IVR telephone outcome tracking
           </p>
         </div>
@@ -141,7 +141,7 @@ export const AdminComplaintsTable: React.FC = () => {
             variant="outline"
             size="md"
             onClick={handleExportCsv}
-            leftIcon={<FileSpreadsheet className="w-4 h-4 text-emerald-700" />}
+            leftIcon={<FileSpreadsheet className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />}
           >
             Export Filtered CSV ({filteredList.length})
           </Button>
@@ -150,7 +150,7 @@ export const AdminComplaintsTable: React.FC = () => {
 
       {/* Quick Saved Views Strip */}
       <div className="flex items-center gap-2 overflow-x-auto pb-1">
-        <span className="text-xs font-bold text-ink-muted uppercase tracking-wider pl-1">Saved Views:</span>
+        <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider pl-1">Saved Views:</span>
         {[
           { id: 'ALL', label: 'All Records' },
           { id: 'PENDING_VERIFY', label: 'Pending IVR Verification' },
@@ -162,8 +162,8 @@ export const AdminComplaintsTable: React.FC = () => {
             onClick={() => setSelectedView(view.id as any)}
             className={`px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
               selectedView === view.id
-                ? 'bg-ink text-white shadow-2xs'
-                : 'bg-white text-ink-secondary border border-ink-border hover:text-ink'
+                ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xs'
+                : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
             {view.label}
@@ -174,20 +174,20 @@ export const AdminComplaintsTable: React.FC = () => {
       {/* Filters & Search Row */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         <div className="relative">
-          <Search className="w-4 h-4 text-ink-muted absolute left-3.5 top-1/2 -translate-y-1/2" />
+          <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
           <input
             type="text"
             placeholder="Search ticket, citizen, ward, street..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full h-11 pl-10 pr-4 rounded-2xl bg-white border border-ink-border text-xs focus:ring-2 focus:ring-lavender focus:outline-none"
+            className="w-full h-11 pl-10 pr-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-slate-900 dark:focus:ring-white focus:outline-none"
           />
         </div>
 
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value as any)}
-          className="h-11 px-3.5 rounded-2xl bg-white border border-ink-border text-xs font-bold text-ink focus:ring-2 focus:ring-lavender focus:outline-none"
+          className="h-11 px-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-900 dark:text-white focus:ring-2 focus:ring-slate-900 dark:focus:ring-white focus:outline-none"
         >
           <option value="ALL">All Statuses</option>
           <option value="PENDING">Pending</option>
@@ -200,7 +200,7 @@ export const AdminComplaintsTable: React.FC = () => {
         <select
           value={departmentFilter}
           onChange={(e) => setDepartmentFilter(e.target.value)}
-          className="h-11 px-3.5 rounded-2xl bg-white border border-ink-border text-xs font-bold text-ink focus:ring-2 focus:ring-lavender focus:outline-none"
+          className="h-11 px-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-semibold text-slate-900 dark:text-white focus:ring-2 focus:ring-slate-900 dark:focus:ring-white focus:outline-none"
         >
           <option value="ALL">All Municipal Departments</option>
           <option value="dept_roads">Roads & Bridges</option>
@@ -212,10 +212,10 @@ export const AdminComplaintsTable: React.FC = () => {
       </div>
 
       {/* Master Data Table */}
-      <Card className="p-0 overflow-hidden bg-white border-ink-border shadow-soft">
+      <Card className="p-0 overflow-hidden shadow-card">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-canvas border-b border-ink-border text-ink-secondary font-bold uppercase tracking-wider text-[10px]">
+            <thead className="bg-slate-50 dark:bg-slate-800/60 border-b border-slate-100 dark:border-slate-800 text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider text-[10px]">
               <tr>
                 <th className="p-4">Ticket</th>
                 <th className="p-4">Status</th>
@@ -226,43 +226,43 @@ export const AdminComplaintsTable: React.FC = () => {
                 <th className="p-4 text-right">Audit</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-ink-border text-ink">
+            <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-slate-900 dark:text-slate-100">
               {filteredList.map((c) => (
                 <tr
                   key={c.id}
                   onClick={() => setInspectorComplaint(c)}
-                  className="hover:bg-ink-light/50 cursor-pointer transition-colors"
+                  className="hover:bg-slate-50/80 dark:hover:bg-slate-800/40 cursor-pointer transition-colors"
                 >
-                  <td className="p-4 font-mono font-bold text-ink">
+                  <td className="p-4 font-mono font-bold text-slate-900 dark:text-white">
                     <span>{c.ticketNumber}</span>
                   </td>
                   <td className="p-4">
                     <StatusChip status={c.status} size="sm" />
                   </td>
                   <td className="p-4 max-w-xs">
-                    <p className="font-bold text-ink truncate">{c.title}</p>
-                    <p className="text-[11px] text-ink-muted truncate">{c.complaintLocation.address}</p>
+                    <p className="font-bold text-slate-900 dark:text-white truncate">{c.title}</p>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">{c.complaintLocation.address}</p>
                   </td>
                   <td className="p-4">
-                    <span className="font-medium">{c.departmentName}</span>
+                    <span className="font-medium text-slate-700 dark:text-slate-300">{c.departmentName}</span>
                   </td>
                   <td className="p-4">
-                    <p className="font-bold">{c.citizenName}</p>
-                    <p className="text-[10px] font-mono text-ink-muted">{c.citizenPhone}</p>
+                    <p className="font-bold text-slate-900 dark:text-white">{c.citizenName}</p>
+                    <p className="text-[10px] font-mono text-slate-500 dark:text-slate-400">{c.citizenPhone}</p>
                   </td>
                   <td className="p-4">
                     {c.verificationCall ? (
-                      <span className="inline-flex items-center gap-1 text-[11px] font-bold text-purple-800 bg-purple-100 px-2 py-0.5 rounded-full">
+                      <span className="inline-flex items-center gap-1 text-[11px] font-bold text-purple-800 dark:text-purple-300 bg-purple-100 dark:bg-purple-950/60 px-2 py-0.5 rounded-full border border-purple-200 dark:border-purple-800/40">
                         <PhoneCall className="w-3 h-3" />
                         <span>IVR Logged</span>
                       </span>
                     ) : c.photoAfterUrl ? (
-                      <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full">
+                      <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800/40">
                         <CheckCircle2 className="w-3 h-3" />
                         <span>Photo Proof (≤100m)</span>
                       </span>
                     ) : (
-                      <span className="text-ink-muted text-[11px]">—</span>
+                      <span className="text-slate-400 text-[11px]">—</span>
                     )}
                   </td>
                   <td className="p-4 text-right">
@@ -288,9 +288,9 @@ export const AdminComplaintsTable: React.FC = () => {
         {inspectorComplaint && (
           <div className="space-y-6">
             {/* Quick Status Bar */}
-            <div className="flex items-center justify-between p-4 rounded-2xl bg-white border border-ink-border">
+            <div className="flex items-center justify-between p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
               <div>
-                <span className="text-xs text-ink-muted">Lifecycle State</span>
+                <span className="text-xs text-slate-500 dark:text-slate-400">Lifecycle State</span>
                 <div className="mt-1">
                   <StatusChip status={inspectorComplaint.status} size="lg" />
                 </div>
@@ -310,26 +310,26 @@ export const AdminComplaintsTable: React.FC = () => {
             {/* GPS TRIANGULATION MINI-MAP */}
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <h4 className="text-xs font-bold text-ink uppercase tracking-wider flex items-center gap-1.5">
-                  <Compass className="w-4 h-4 text-lavender" />
-                  <span>GPS Triangulation Mini-Map (Citizen vs Officer vs EXIF)</span>
+                <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+                  <Compass className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                  <span>GPS Triangulation Telemetry</span>
                 </h4>
-                <span className="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-bold">
-                  Telemetry Matched ±3.4m
+                <span className="text-[10px] font-mono text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/40 px-2 py-0.5 rounded font-bold">
+                  Matched ±3.4m
                 </span>
               </div>
 
               {/* Triangulation telemetry card */}
-              <div className="grid grid-cols-2 gap-3 p-3.5 rounded-2xl bg-canvas border border-ink-border text-xs font-mono">
+              <div className="grid grid-cols-2 gap-3 p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-xs font-mono">
                 <div>
-                  <p className="text-ink-muted text-[10px]">Citizen Complaint GPS:</p>
-                  <p className="font-bold text-ink">
+                  <p className="text-slate-500 dark:text-slate-400 text-[10px]">Citizen Complaint GPS:</p>
+                  <p className="font-bold text-slate-900 dark:text-white">
                     {inspectorComplaint.complaintLocation.lat.toFixed(6)}, {inspectorComplaint.complaintLocation.lng.toFixed(6)}
                   </p>
                 </div>
                 <div>
-                  <p className="text-ink-muted text-[10px]">Officer Resolution GPS:</p>
-                  <p className="font-bold text-ink">
+                  <p className="text-slate-500 dark:text-slate-400 text-[10px]">Officer Resolution GPS:</p>
+                  <p className="font-bold text-slate-900 dark:text-white">
                     {inspectorComplaint.resolutionLocation
                       ? `${inspectorComplaint.resolutionLocation.lat.toFixed(6)}, ${inspectorComplaint.resolutionLocation.lng.toFixed(6)}`
                       : 'Awaiting Field Upload'}
@@ -340,7 +340,7 @@ export const AdminComplaintsTable: React.FC = () => {
 
             {/* Before / After Photo Comparison */}
             <div className="space-y-2">
-              <h4 className="text-xs font-bold text-ink uppercase tracking-wider">
+              <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
                 Photo Proof Verification
               </h4>
               {inspectorComplaint.photoAfterUrl ? (
@@ -349,13 +349,13 @@ export const AdminComplaintsTable: React.FC = () => {
                   afterImage={inspectorComplaint.photoAfterUrl}
                 />
               ) : (
-                <div className="relative rounded-3xl overflow-hidden border border-ink-border aspect-16/9">
+                <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 aspect-16/9">
                   <img
                     src={inspectorComplaint.photoBeforeUrl}
                     alt="Before"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute bottom-2 left-2 px-2.5 py-1 bg-black/75 text-white rounded-xl text-[10px] font-mono">
+                  <div className="absolute bottom-2 left-2 px-2.5 py-1 bg-slate-950/80 text-white rounded-lg text-[10px] font-mono">
                     Locked at report: {inspectorComplaint.complaintLocation.address}
                   </div>
                 </div>
@@ -364,23 +364,23 @@ export const AdminComplaintsTable: React.FC = () => {
 
             {/* IVR Verification Transcript & Audio Player */}
             {inspectorComplaint.verificationCall && (
-              <div className="space-y-3 p-5 rounded-3xl bg-gradient-to-r from-purple-50 via-slate-50 to-indigo-50 border border-lavender/30">
+              <div className="space-y-3 p-5 rounded-2xl bg-purple-50/60 dark:bg-purple-950/30 border border-purple-200/80 dark:border-purple-800/40">
                 <div className="flex items-center justify-between">
-                  <h4 className="text-xs font-bold text-lavender-dark uppercase tracking-wider flex items-center gap-1.5">
+                  <h4 className="text-xs font-bold text-purple-900 dark:text-purple-300 uppercase tracking-wider flex items-center gap-1.5">
                     <PhoneCall className="w-4 h-4" />
                     <span>Twilio IVR Call Record ({inspectorComplaint.verificationCall.durationSeconds}s)</span>
                   </h4>
-                  <span className="text-[10px] font-mono bg-purple-200 text-purple-900 px-2 py-0.5 rounded font-bold">
+                  <span className="text-[10px] font-mono bg-purple-100 dark:bg-purple-900/60 text-purple-900 dark:text-purple-300 px-2 py-0.5 rounded font-bold">
                     {inspectorComplaint.verificationCall.outcome}
                   </span>
                 </div>
 
-                <div className="p-3 bg-white rounded-2xl border border-ink-border text-xs space-y-2">
-                  <p className="text-ink font-semibold">Gujarati Call Transcript:</p>
-                  <p className="text-ink-secondary font-gujarati italic">
+                <div className="p-3 bg-white dark:bg-slate-800 rounded-xl border border-purple-100 dark:border-purple-900 text-xs space-y-2">
+                  <p className="text-slate-900 dark:text-white font-semibold">Gujarati Call Transcript:</p>
+                  <p className="text-slate-600 dark:text-slate-300 font-gujarati italic">
                     "{inspectorComplaint.verificationCall.transcriptGu}"
                   </p>
-                  <div className="pt-2 border-t border-ink-border/50 text-[11px] text-ink-muted">
+                  <div className="pt-2 border-t border-slate-100 dark:border-slate-700 text-[11px] text-slate-500 dark:text-slate-400">
                     <b>English Summary:</b> {inspectorComplaint.verificationCall.transcriptEn}
                   </div>
                 </div>
@@ -389,7 +389,7 @@ export const AdminComplaintsTable: React.FC = () => {
 
             {/* Audit Trail */}
             <div className="space-y-3 pt-2">
-              <h4 className="text-xs font-bold text-ink uppercase tracking-wider">
+              <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
                 Immutable Lifecycle Trail
               </h4>
               <Timeline events={inspectorComplaint.timeline} />

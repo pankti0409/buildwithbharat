@@ -187,22 +187,24 @@ export const DepartmentQueue: React.FC = () => {
       {/* Search & View Switcher Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="relative flex-1 max-w-md">
-          <Search className="w-4 h-4 text-ink-muted absolute left-3.5 top-1/2 -translate-y-1/2" />
+          <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
           <input
             type="text"
             placeholder="Search ticket number, road, or issue..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full h-11 pl-10 pr-4 rounded-2xl bg-white border border-ink-border text-xs focus:ring-2 focus:ring-sky-dark focus:outline-none shadow-2xs"
+            className="w-full h-11 pl-10 pr-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-slate-900 dark:focus:ring-white focus:outline-none shadow-xs"
           />
         </div>
 
         {/* View Toggle */}
-        <div className="flex bg-white p-1 rounded-2xl border border-ink-border shadow-2xs">
+        <div className="flex bg-white dark:bg-slate-900 p-1 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs">
           <button
             onClick={() => setViewMode('KANBAN')}
             className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
-              viewMode === 'KANBAN' ? 'bg-sky-dark text-white shadow-2xs' : 'text-ink-secondary hover:text-ink'
+              viewMode === 'KANBAN' 
+                ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xs' 
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
             <Kanban className="w-3.5 h-3.5" />
@@ -211,7 +213,9 @@ export const DepartmentQueue: React.FC = () => {
           <button
             onClick={() => setViewMode('TABLE')}
             className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
-              viewMode === 'TABLE' ? 'bg-sky-dark text-white shadow-2xs' : 'text-ink-secondary hover:text-ink'
+              viewMode === 'TABLE' 
+                ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xs' 
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
             <Table className="w-3.5 h-3.5" />
@@ -228,12 +232,12 @@ export const DepartmentQueue: React.FC = () => {
             return (
               <div
                 key={col.status}
-                className={`p-3 rounded-3xl border ${col.color} space-y-3 min-w-[240px]`}
+                className="p-3.5 rounded-2xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 space-y-3 min-w-[240px]"
               >
                 {/* Column Header */}
                 <div className="flex items-center justify-between px-1">
-                  <h3 className="text-xs font-bold text-ink uppercase tracking-wider">{col.title}</h3>
-                  <span className="w-5 h-5 rounded-full bg-white text-ink text-[11px] font-mono font-bold flex items-center justify-center shadow-2xs">
+                  <h3 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">{col.title}</h3>
+                  <span className="w-5 h-5 rounded-full bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-[11px] font-mono font-bold flex items-center justify-center border border-slate-200 dark:border-slate-700 shadow-2xs">
                     {colComplaints.length}
                   </span>
                 </div>
@@ -241,7 +245,7 @@ export const DepartmentQueue: React.FC = () => {
                 {/* Cards in Column */}
                 <div className="space-y-2.5">
                   {colComplaints.length === 0 ? (
-                    <div className="p-4 rounded-2xl bg-white/40 border border-dashed border-ink-border text-center text-[11px] text-ink-muted">
+                    <div className="p-4 rounded-xl bg-white/60 dark:bg-slate-800/40 border border-dashed border-slate-200 dark:border-slate-700 text-center text-[11px] text-slate-400">
                       No tickets
                     </div>
                   ) : (
@@ -250,14 +254,14 @@ export const DepartmentQueue: React.FC = () => {
                         key={c.id}
                         hover
                         onClick={() => setSelectedComplaint(c)}
-                        className="p-3.5 bg-white border-ink-border cursor-pointer space-y-2 shadow-2xs hover:shadow-soft"
+                        className="p-3.5 cursor-pointer space-y-2 shadow-xs hover:shadow-card-hover"
                       >
                         <div className="flex items-center justify-between">
-                          <span className="text-[10px] font-mono text-ink-muted">{c.ticketNumber}</span>
-                          <span className="text-[10px] text-amber-800 font-bold">{c.urgency}</span>
+                          <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400">{c.ticketNumber}</span>
+                          <span className="text-[10px] text-amber-700 dark:text-amber-400 font-bold font-mono">{c.urgency}</span>
                         </div>
 
-                        <h4 className="text-xs font-bold text-ink line-clamp-2">
+                        <h4 className="text-xs font-bold text-slate-900 dark:text-white line-clamp-2">
                           {language === 'gu' ? c.titleGu : c.title}
                         </h4>
 
@@ -269,13 +273,13 @@ export const DepartmentQueue: React.FC = () => {
                           />
                         </div>
 
-                        <p className="text-[10px] text-ink-secondary truncate flex items-center gap-1">
-                          <MapPin className="w-3 h-3 text-lavender shrink-0" />
+                        <p className="text-[10px] text-slate-600 dark:text-slate-400 truncate flex items-center gap-1">
+                          <MapPin className="w-3 h-3 text-purple-500 shrink-0" />
                           <span>{c.complaintLocation.address}</span>
                         </p>
 
                         {/* Card Action Shortcuts */}
-                        <div className="pt-2 border-t border-ink-border/50 flex gap-1.5">
+                        <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex gap-1.5">
                           {c.status === 'PENDING' && (
                             <Button
                               variant="secondary"
@@ -284,7 +288,7 @@ export const DepartmentQueue: React.FC = () => {
                                 e.stopPropagation();
                                 handleStartWork(c);
                               }}
-                              className="w-full text-[11px] h-8 bg-sky-light text-sky-dark"
+                              className="w-full text-[11px] h-8"
                             >
                               Start Work
                             </Button>
@@ -292,7 +296,7 @@ export const DepartmentQueue: React.FC = () => {
 
                           {c.status === 'IN_PROGRESS' && (
                             <Button
-                              variant="mint"
+                              variant="primary"
                               size="sm"
                               onClick={(e) => {
                                 e.stopPropagation();
@@ -316,10 +320,10 @@ export const DepartmentQueue: React.FC = () => {
 
       {/* DATA TABLE VIEW */}
       {viewMode === 'TABLE' && (
-        <Card className="p-0 overflow-hidden bg-white">
+        <Card className="p-0 overflow-hidden shadow-card">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
-              <thead className="bg-canvas border-b border-ink-border text-ink-secondary font-bold uppercase tracking-wider text-[10px]">
+              <thead className="bg-slate-50 dark:bg-slate-800/60 border-b border-slate-100 dark:border-slate-800 text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider text-[10px]">
                 <tr>
                   <th className="p-4">Ticket</th>
                   <th className="p-4">Status</th>
@@ -329,40 +333,40 @@ export const DepartmentQueue: React.FC = () => {
                   <th className="p-4 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-ink-border text-ink">
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-slate-900 dark:text-slate-100">
                 {filteredComplaints.map((c) => (
                   <tr
                     key={c.id}
                     onClick={() => setSelectedComplaint(c)}
-                    className="hover:bg-ink-light/50 cursor-pointer transition-colors"
+                    className="hover:bg-slate-50/80 dark:hover:bg-slate-800/40 cursor-pointer transition-colors"
                   >
-                    <td className="p-4 font-mono font-bold text-ink">{c.ticketNumber}</td>
+                    <td className="p-4 font-mono font-bold text-slate-900 dark:text-white">{c.ticketNumber}</td>
                     <td className="p-4">
                       <StatusChip status={c.status} size="sm" />
                     </td>
                     <td className="p-4 max-w-xs">
-                      <p className="font-bold truncate">{c.title}</p>
-                      <p className="text-[11px] text-ink-muted truncate">{c.complaintLocation.address}</p>
+                      <p className="font-bold text-slate-900 dark:text-white truncate">{c.title}</p>
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">{c.complaintLocation.address}</p>
                     </td>
                     <td className="p-4">
-                      <p className="font-bold">{c.citizenName}</p>
-                      <p className="text-[11px] text-ink-muted font-mono">{c.citizenPhone}</p>
+                      <p className="font-bold text-slate-900 dark:text-white">{c.citizenName}</p>
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">{c.citizenPhone}</p>
                     </td>
-                    <td className="p-4 font-mono text-emerald-700 font-bold">18h remaining</td>
+                    <td className="p-4 font-mono text-emerald-600 dark:text-emerald-400 font-bold">18h remaining</td>
                     <td className="p-4 text-right" onClick={(e) => e.stopPropagation()}>
                       {c.status === 'PENDING' && (
                         <Button
                           variant="secondary"
                           size="sm"
                           onClick={() => handleStartWork(c)}
-                          className="text-xs h-8 bg-sky-light text-sky-dark"
+                          className="text-xs h-8"
                         >
                           Start Work
                         </Button>
                       )}
                       {c.status === 'IN_PROGRESS' && (
                         <Button
-                          variant="mint"
+                          variant="primary"
                           size="sm"
                           onClick={() => handleOpenResolveFlow(c)}
                           className="text-xs h-8"
@@ -389,16 +393,16 @@ export const DepartmentQueue: React.FC = () => {
       >
         {selectedComplaint && (
           <div className="space-y-6">
-            <div className="flex items-center justify-between p-4 rounded-2xl bg-white border border-ink-border">
+            <div className="flex items-center justify-between p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
               <div>
-                <span className="text-xs text-ink-muted">Ticket Status</span>
+                <span className="text-xs text-slate-500 dark:text-slate-400">Ticket Status</span>
                 <div className="mt-1">
                   <StatusChip status={selectedComplaint.status} size="md" />
                 </div>
               </div>
               <div className="text-right">
-                <span className="text-xs text-ink-muted">Assigned Officer</span>
-                <p className="text-xs font-bold text-ink mt-1">
+                <span className="text-xs text-slate-500 dark:text-slate-400">Assigned Officer</span>
+                <p className="text-xs font-bold text-slate-900 dark:text-white mt-1">
                   {selectedComplaint.assignedOfficerName || 'Unassigned'}
                 </p>
               </div>
@@ -412,7 +416,7 @@ export const DepartmentQueue: React.FC = () => {
                   size="md"
                   onClick={() => handleStartWork(selectedComplaint)}
                   leftIcon={<Wrench className="w-4 h-4" />}
-                  className="w-full bg-sky-dark hover:bg-sky-dark/90"
+                  className="w-full"
                 >
                   Start Work (Mark In-Progress)
                 </Button>
@@ -420,11 +424,11 @@ export const DepartmentQueue: React.FC = () => {
 
               {selectedComplaint.status === 'IN_PROGRESS' && (
                 <Button
-                  variant="mint"
+                  variant="primary"
                   size="md"
                   onClick={() => handleOpenResolveFlow(selectedComplaint)}
                   leftIcon={<Camera className="w-4 h-4" />}
-                  className="w-full shadow-glow-mint"
+                  className="w-full"
                 >
                   Upload Geo-Fenced Resolution Proof
                 </Button>
@@ -445,16 +449,16 @@ export const DepartmentQueue: React.FC = () => {
 
             {/* Photo & GPS */}
             <div className="space-y-2">
-              <h4 className="text-xs font-bold text-ink uppercase tracking-wider">
+              <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
                 Initial Complaint Photo & GPS
               </h4>
-              <div className="relative rounded-3xl overflow-hidden border border-ink-border aspect-16/9">
+              <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 aspect-16/9">
                 <img
                   src={selectedComplaint.photoBeforeUrl}
                   alt={selectedComplaint.title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute bottom-2 left-2 px-2.5 py-1 bg-black/75 text-white rounded-xl text-[10px] font-mono">
+                <div className="absolute bottom-2 left-2 px-2.5 py-1 bg-slate-950/80 text-white rounded-lg text-[10px] font-mono">
                   {selectedComplaint.complaintLocation.lat.toFixed(6)}° N, {selectedComplaint.complaintLocation.lng.toFixed(6)}° E
                 </div>
               </div>
@@ -463,7 +467,7 @@ export const DepartmentQueue: React.FC = () => {
             {/* After resolution photo if exists */}
             {selectedComplaint.photoAfterUrl && (
               <div className="space-y-2">
-                <h4 className="text-xs font-bold text-ink uppercase tracking-wider">
+                <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
                   Field Resolution Proof
                 </h4>
                 <BeforeAfterSlider
@@ -475,7 +479,7 @@ export const DepartmentQueue: React.FC = () => {
 
             {/* Timeline */}
             <div className="space-y-3 pt-2">
-              <h4 className="text-xs font-bold text-ink uppercase tracking-wider">
+              <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
                 Lifecycle Timeline
               </h4>
               <Timeline events={selectedComplaint.timeline} />

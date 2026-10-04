@@ -70,18 +70,18 @@ export const AdminDashboard: React.FC = () => {
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-extrabold text-ink tracking-tight">Executive Command Overview</h1>
-          <p className="text-xs sm:text-sm text-ink-secondary mt-0.5">
+          <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">Executive Command Overview</h1>
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
             Cross-departmental municipal analytics & proof-of-work compliance
           </p>
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <Button
             variant="outline"
             size="sm"
             onClick={() => navigate('/admin/fraud')}
-            leftIcon={<AlertTriangle className="w-3.5 h-3.5 text-rose" />}
+            leftIcon={<AlertTriangle className="w-3.5 h-3.5 text-rose-500" />}
           >
             Integrity Sentinel (2 Flags)
           </Button>
@@ -134,19 +134,19 @@ export const AdminDashboard: React.FC = () => {
       {/* Middle Grid: Recharts Trend Curve + Donut Category Breakdown */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Left: 7-Day Intake vs Resolution Trend */}
-        <Card className="lg:col-span-8 p-6 bg-white border-ink-border">
+        <Card className="lg:col-span-8 p-6">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h3 className="text-sm font-bold text-ink">Grievance Intake vs Resolution Speed (7-Day Curve)</h3>
-              <p className="text-xs text-ink-muted">Daily comparison of citizen submissions vs verified field closures</p>
+              <h3 className="text-sm font-bold text-slate-900 dark:text-white">Grievance Intake vs Resolution Speed (7-Day Curve)</h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400">Daily comparison of citizen submissions vs verified field closures</p>
             </div>
             <div className="flex items-center gap-4 text-xs font-semibold">
-              <span className="flex items-center gap-1.5 text-lavender-dark">
-                <span className="w-2.5 h-2.5 rounded-full bg-lavender" />
+              <span className="flex items-center gap-1.5 text-purple-600 dark:text-purple-400">
+                <span className="w-2.5 h-2.5 rounded-full bg-purple-500" />
                 Intake
               </span>
-              <span className="flex items-center gap-1.5 text-emerald-700">
-                <span className="w-2.5 h-2.5 rounded-full bg-mint" />
+              <span className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
                 Resolved
               </span>
             </div>
@@ -161,19 +161,20 @@ export const AdminDashboard: React.FC = () => {
                     <stop offset="95%" stopColor="#8B7CF6" stopOpacity={0.0} />
                   </linearGradient>
                   <linearGradient id="colorResolved" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#7ED9B8" stopOpacity={0.4} />
-                    <stop offset="95%" stopColor="#7ED9B8" stopOpacity={0.0} />
+                    <stop offset="5%" stopColor="#10B981" stopOpacity={0.4} />
+                    <stop offset="95%" stopColor="#10B981" stopOpacity={0.0} />
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="#F3F2F7" vertical={false} />
-                <XAxis dataKey="day" stroke="#8E8A9C" fontSize={11} tickLine={false} />
-                <YAxis stroke="#8E8A9C" fontSize={11} tickLine={false} />
+                <CartesianGrid strokeDasharray="3 3" stroke="rgba(148, 163, 184, 0.15)" vertical={false} />
+                <XAxis dataKey="day" stroke="#94A3B8" fontSize={11} tickLine={false} />
+                <YAxis stroke="#94A3B8" fontSize={11} tickLine={false} />
                 <Tooltip
                   contentStyle={{
-                    backgroundColor: '#FFFFFF',
-                    borderRadius: '16px',
-                    border: '1px solid #E9E7F0',
-                    boxShadow: '0 8px 24px rgba(0,0,0,0.06)',
+                    backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                    color: '#FFFFFF',
+                    borderRadius: '12px',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    boxShadow: '0 8px 24px rgba(0,0,0,0.2)',
                     fontSize: '12px',
                   }}
                 />
@@ -188,7 +189,7 @@ export const AdminDashboard: React.FC = () => {
                 <Area
                   type="monotone"
                   dataKey="resolved"
-                  stroke="#7ED9B8"
+                  stroke="#10B981"
                   strokeWidth={2.5}
                   fillOpacity={1}
                   fill="url(#colorResolved)"
@@ -199,10 +200,10 @@ export const AdminDashboard: React.FC = () => {
         </Card>
 
         {/* Right: Category Distribution Donut */}
-        <Card className="lg:col-span-4 p-6 bg-white border-ink-border flex flex-col justify-between">
+        <Card className="lg:col-span-4 p-6 flex flex-col justify-between">
           <div>
-            <h3 className="text-sm font-bold text-ink">Grievance Distribution</h3>
-            <p className="text-xs text-ink-muted">Breakdown by Municipal Category</p>
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white">Grievance Distribution</h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400">Breakdown by Municipal Category</p>
           </div>
 
           <div className="h-48 w-full relative flex items-center justify-center my-2">
@@ -223,19 +224,19 @@ export const AdminDashboard: React.FC = () => {
               </PieChart>
             </ResponsiveContainer>
             <div className="absolute text-center pointer-events-none">
-              <p className="text-xl font-extrabold text-ink">1,420</p>
-              <p className="text-[10px] text-ink-muted uppercase">Total</p>
+              <p className="text-xl font-extrabold text-slate-900 dark:text-white">1,420</p>
+              <p className="text-[10px] text-slate-500 dark:text-slate-400 uppercase">Total</p>
             </div>
           </div>
 
-          <div className="space-y-1.5 pt-2 border-t border-ink-border text-xs">
+          <div className="space-y-1.5 pt-2 border-t border-slate-100 dark:border-slate-800 text-xs">
             {CATEGORY_DATA.slice(0, 3).map((item, idx) => (
               <div key={idx} className="flex items-center justify-between">
                 <div className="flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full" style={{ backgroundColor: item.color }} />
-                  <span className="text-ink-secondary">{item.name}</span>
+                  <span className="text-slate-600 dark:text-slate-400">{item.name}</span>
                 </div>
-                <span className="font-bold text-ink font-mono">{item.value}%</span>
+                <span className="font-bold text-slate-900 dark:text-white font-mono">{item.value}%</span>
               </div>
             ))}
           </div>
@@ -243,11 +244,11 @@ export const AdminDashboard: React.FC = () => {
       </div>
 
       {/* Bottom Grid: Department SLA Ranking Leaderboard Table */}
-      <Card className="p-0 overflow-hidden bg-white border-ink-border">
-        <div className="p-5 border-b border-ink-border flex items-center justify-between">
+      <Card className="p-0 overflow-hidden">
+        <div className="p-5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
           <div>
-            <h3 className="text-sm font-bold text-ink">Department Performance & SLA Adherence</h3>
-            <p className="text-xs text-ink-muted">Turnaround speed, active backlog, and citizen reopen rates</p>
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white">Department Performance & SLA Adherence</h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400">Turnaround speed, active backlog, and citizen reopen rates</p>
           </div>
           <Button
             variant="ghost"
@@ -259,39 +260,41 @@ export const AdminDashboard: React.FC = () => {
           </Button>
         </div>
 
-        <table className="w-full text-left text-xs">
-          <thead className="bg-canvas border-b border-ink-border text-ink-secondary font-bold uppercase text-[10px]">
-            <tr>
-              <th className="p-4">Department</th>
-              <th className="p-4">Head of Dept</th>
-              <th className="p-4">SLA Target</th>
-              <th className="p-4">Avg Speed</th>
-              <th className="p-4">Active Backlog</th>
-              <th className="p-4">Reopen %</th>
-              <th className="p-4">Rating</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-ink-border text-ink">
-            {departments.map((dept) => (
-              <tr key={dept.id} className="hover:bg-ink-light/50 transition-colors">
-                <td className="p-4 font-bold flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full" style={{ backgroundColor: dept.color }} />
-                  <span>{dept.name}</span>
-                </td>
-                <td className="p-4 text-ink-secondary">{dept.headName}</td>
-                <td className="p-4 font-mono">{dept.slaHours} hrs</td>
-                <td className="p-4 font-mono text-emerald-700 font-bold">{dept.avgResolutionHours} hrs</td>
-                <td className="p-4 font-mono font-bold">{dept.activeCount} tasks</td>
-                <td className="p-4 font-mono text-amber-700 font-bold">{dept.reopenRate}%</td>
-                <td className="p-4">
-                  <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold">
-                    Grade A
-                  </span>
-                </td>
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-xs">
+            <thead className="bg-slate-50 dark:bg-slate-800/60 border-b border-slate-100 dark:border-slate-800 text-slate-500 dark:text-slate-400 font-bold uppercase text-[10px]">
+              <tr>
+                <th className="p-4">Department</th>
+                <th className="p-4">Head of Dept</th>
+                <th className="p-4">SLA Target</th>
+                <th className="p-4">Avg Speed</th>
+                <th className="p-4">Active Backlog</th>
+                <th className="p-4">Reopen %</th>
+                <th className="p-4">Rating</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-slate-900 dark:text-slate-100">
+              {departments.map((dept) => (
+                <tr key={dept.id} className="hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition-colors">
+                  <td className="p-4 font-bold flex items-center gap-2">
+                    <span className="w-3 h-3 rounded-full" style={{ backgroundColor: dept.color }} />
+                    <span>{dept.name}</span>
+                  </td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400">{dept.headName}</td>
+                  <td className="p-4 font-mono">{dept.slaHours} hrs</td>
+                  <td className="p-4 font-mono text-emerald-600 dark:text-emerald-400 font-bold">{dept.avgResolutionHours} hrs</td>
+                  <td className="p-4 font-mono font-bold">{dept.activeCount} tasks</td>
+                  <td className="p-4 font-mono text-amber-600 dark:text-amber-400 font-bold">{dept.reopenRate}%</td>
+                  <td className="p-4">
+                    <span className="px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 text-[10px] font-bold border border-emerald-200 dark:border-emerald-800/40">
+                      Grade A
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </Card>
     </div>
   );

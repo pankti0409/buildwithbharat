@@ -9,8 +9,12 @@ export default {
     extend: {
       colors: {
         canvas: {
-          DEFAULT: '#F8FAFC',
+          DEFAULT: 'var(--canvas, #F8FAFC)',
           dark: '#0F172A',
+        },
+        card: {
+          DEFAULT: 'var(--card, #FFFFFF)',
+          dark: '#1E293B',
         },
         surface: {
           light: '#FFFFFF',
@@ -38,11 +42,11 @@ export default {
           dark: '#075985',
         },
         ink: {
-          DEFAULT: '#0F172A',
-          secondary: '#475569',
-          muted: '#64748B',
+          DEFAULT: 'var(--ink, #0F172A)',
+          secondary: 'var(--ink-secondary, #475569)',
+          muted: 'var(--ink-muted, #64748B)',
           light: '#F1F5F9',
-          border: '#E2E8F0',
+          border: 'var(--border, #E2E8F0)',
         },
         // Dedicated Pastel + Vibrant Semantic Tokens
         mint: {

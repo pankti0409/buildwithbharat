@@ -189,29 +189,29 @@ export const CitizenMyComplaints: React.FC = () => {
         {selectedComplaint && (
           <div className="space-y-6">
             {/* Status & Category */}
-            <div className="flex items-center justify-between p-4 rounded-2xl bg-white border border-ink-border shadow-xs">
+            <div className="flex items-center justify-between p-4 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 shadow-xs">
               <div>
-                <p className="text-xs text-ink-muted">Current Lifecycle Status</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Current Lifecycle Status</p>
                 <div className="mt-1">
                   <StatusChip status={selectedComplaint.status} size="lg" />
                 </div>
               </div>
               <div className="text-right">
-                <p className="text-xs text-ink-muted">Department</p>
-                <p className="text-xs font-bold text-ink mt-1">{selectedComplaint.departmentName}</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Department</p>
+                <p className="text-xs font-bold text-slate-900 dark:text-white mt-1">{selectedComplaint.departmentName}</p>
               </div>
             </div>
 
             {/* Title & Description */}
             <div className="space-y-2">
-              <h3 className="text-lg font-bold text-ink">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white">
                 {language === 'gu' ? selectedComplaint.titleGu : selectedComplaint.title}
               </h3>
-              <p className="text-xs sm:text-sm text-ink-secondary leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                 {language === 'gu' ? selectedComplaint.descriptionGu : selectedComplaint.description}
               </p>
-              <p className="text-xs text-ink-muted font-mono flex items-center gap-1.5 pt-1">
-                <MapPin className="w-3.5 h-3.5 text-lavender" />
+              <p className="text-xs text-slate-500 dark:text-slate-400 font-mono flex items-center gap-1.5 pt-1">
+                <MapPin className="w-3.5 h-3.5 text-slate-400" />
                 <span>{selectedComplaint.complaintLocation.address}</span>
               </p>
             </div>
@@ -220,10 +220,10 @@ export const CitizenMyComplaints: React.FC = () => {
             {selectedComplaint.photoAfterUrl ? (
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <h4 className="text-xs font-bold text-ink uppercase tracking-wider">
+                  <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
                     Interactive Proof Comparison
                   </h4>
-                  <span className="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-bold">
+                  <span className="text-[10px] font-mono text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/40 px-2 py-0.5 rounded font-bold">
                     Geo-fence: {selectedComplaint.geoFenceDistanceMeters}m (Pass)
                   </span>
                 </div>
@@ -232,23 +232,23 @@ export const CitizenMyComplaints: React.FC = () => {
                   afterImage={selectedComplaint.photoAfterUrl}
                 />
                 {selectedComplaint.resolutionRemarks && (
-                  <div className="p-3 rounded-2xl bg-white border border-ink-border text-xs text-ink-secondary">
-                    <b className="text-ink">Officer Resolution Note:</b> {selectedComplaint.resolutionRemarks}
+                  <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-xs text-slate-600 dark:text-slate-400">
+                    <b className="text-slate-900 dark:text-white">Officer Resolution Note:</b> {selectedComplaint.resolutionRemarks}
                   </div>
                 )}
               </div>
             ) : (
               <div className="space-y-2">
-                <h4 className="text-xs font-bold text-ink uppercase tracking-wider">
+                <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
                   Initial Evidence Photo
                 </h4>
-                <div className="relative rounded-3xl overflow-hidden border border-ink-border aspect-16/9">
+                <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 aspect-16/9">
                   <img
                     src={selectedComplaint.photoBeforeUrl}
                     alt={selectedComplaint.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-black/75 text-white rounded text-[10px] font-mono">
+                  <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-slate-950/80 text-white rounded text-[10px] font-mono">
                     Locked at report time ±{selectedComplaint.complaintLocation.accuracyMeters}m
                   </div>
                 </div>
@@ -257,11 +257,11 @@ export const CitizenMyComplaints: React.FC = () => {
 
             {/* Reopen Action Button (If citizen feels issue isn't resolved) */}
             {(selectedComplaint.status === 'RESOLVED' || selectedComplaint.status === 'VERIFIED') && (
-              <div className="p-4 rounded-2xl bg-rose-50 border border-rose-200/80 space-y-2">
+              <div className="p-4 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800/40 space-y-2">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h4 className="text-xs font-bold text-rose-950">Dissatisfied with the resolution?</h4>
-                    <p className="text-[11px] text-rose-800">You can reopen this complaint for mandatory re-inspection.</p>
+                    <h4 className="text-xs font-bold text-rose-900 dark:text-rose-300">Dissatisfied with the resolution?</h4>
+                    <p className="text-[11px] text-rose-700 dark:text-rose-400">You can reopen this complaint for mandatory re-inspection.</p>
                   </div>
                   <Button
                     variant="danger"
@@ -277,7 +277,7 @@ export const CitizenMyComplaints: React.FC = () => {
 
             {/* Audit Timeline */}
             <div className="space-y-3 pt-2">
-              <h4 className="text-xs font-bold text-ink uppercase tracking-wider">
+              <h4 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider">
                 Full Grievance Audit Trail
               </h4>
               <Timeline events={selectedComplaint.timeline} />
